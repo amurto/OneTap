@@ -59,8 +59,10 @@ const registerForm = async (req, res, next) => {
         );
         return next(error);
     }
-    console.log(coordinatesArray[1].toLowerCase().includes("Pune"))
-    if (!(coordinatesArray[1].toLowerCase().includes("Mumbai".toLowerCase())) || !(coordinatesArray[1].toLowerCase().includes("Pune".toLowerCase()))) {
+    let m = coordinatesArray[1].toLowerCase().includes("mumbai")
+    let p = coordinatesArray[1].toLowerCase().includes("pune")
+    console.log(m, p)
+    if (m === false && p === false) {
         const error = new HttpError(
             'City has to be Mumbai or Pune',
             422
@@ -101,10 +103,37 @@ const registerForm = async (req, res, next) => {
         );
         return next(error);
       }
-        res.json({ 
-            name: name,
-            foi: foi
+
+    res
+        .status(201)
+        .json({ 
+            userId: createdUser.id 
         });
 };
 
+const registerVerticals = async (req, res, next) => {
+    const { verticals, uid } = req.body;
+    console.log(verticals)
+    let newvalues = {$set: {verticals: verticals} };
+
+    try {
+        User.updateOne({ _id: uid }, newvalues, function(err, res) {
+            if (err) throw err;
+            console.log("User Updated");
+        });
+    } catch (err) {
+        const error = new HttpError(
+            'Update failed, please try again.',
+            500
+        );
+        return next(error);
+    }
+    res
+        .status(201)
+        .json({ 
+            "success": true 
+        });
+}
+
 exports.registerForm = registerForm;
+exports.registerVerticals = registerVerticals;

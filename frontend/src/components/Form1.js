@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useHistory } from "react-router-dom";
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -10,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { useHttpClient } from './hooks/http-hook';
+import { FormContext } from './form-context';
 
 import './Form1.css';
 
@@ -45,6 +47,10 @@ function Checkbox({ field, type, checked, interest }) {
 }
 
 const Form1 = () => {
+    // eslint-disable-next-line
+    const { uid, setUid } = useContext(FormContext);
+
+    let history = useHistory();
     const classes = useStyles();
 
     // eslint-disable-next-line
@@ -138,6 +144,8 @@ const Form1 = () => {
                                 }
                             );
                             console.log(responseData)
+                            setUid(responseData.userId)
+                            history.push("/form");
                         } catch(err) {
 
                         }

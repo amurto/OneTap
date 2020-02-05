@@ -19,7 +19,8 @@ const userSchema = new Schema({
     date: {
         type: Date,
         default: Date.now
-      }
+      },
+    verticals: { type: Array }
 });
 
 userSchema.plugin(uniqueValidator);

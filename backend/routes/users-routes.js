@@ -23,5 +23,9 @@ router.post(
     usersController.registerForm
 );
 
+router.post(
+    '/verticals',
+    usersController.registerVerticals
+)
 
 module.exports = router;
