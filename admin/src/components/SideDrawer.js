@@ -1,4 +1,6 @@
 import React from 'react';
+import { useHistory } from "react-router-dom";
+
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
@@ -20,8 +22,9 @@ const useStyles = makeStyles({
   },
 });
 
-export default function TemporaryDrawer() {
+const SideDrawer = () => {
   const classes = useStyles();
+  let history = useHistory();
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -45,21 +48,31 @@ export default function TemporaryDrawer() {
       onKeyDown={toggleDrawer(side, false)}
     >
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+      <ListItem button onClick={() => {history.push("/")}}>
+            <ListItemIcon><InboxIcon /></ListItemIcon>
+            <ListItemText primary="Dashboard" />
+        </ListItem>
+      </List>
+      <List>
+      <ListItem button onClick={() => {history.push("/facs")}}>
+            <ListItemIcon><InboxIcon /></ListItemIcon>
+            <ListItemText primary="Facilitators" />
+        </ListItem>
+        <ListItem button onClick={() => {history.push("/applicants")}}>
+            <ListItemIcon><InboxIcon /></ListItemIcon>
+            <ListItemText primary="All Applicants" />
+        </ListItem>
+        <ListItem button onClick={() => {history.push("/short-list")}}>
+            <ListItemIcon><InboxIcon /></ListItemIcon>
+            <ListItemText primary="ShortListed Applicants" />
+        </ListItem>
       </List>
       <Divider />
       <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+      <ListItem button onClick={() => {history.push("/map")}}>
+            <ListItemIcon><InboxIcon /></ListItemIcon>
+            <ListItemText primary="Map Overview" />
+        </ListItem>
       </List>
     </div>
   );
@@ -117,3 +130,5 @@ export default function TemporaryDrawer() {
     </React.Fragment>
   );
 }
+
+export default SideDrawer;

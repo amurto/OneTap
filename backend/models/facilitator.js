@@ -4,7 +4,7 @@ const uniqueValidator = require('mongoose-unique-validator');
 const Schema = mongoose.Schema;
 
 
-const userSchema = new Schema({
+const facilitatorSchema = new Schema({
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, minlength: 6 },
@@ -23,11 +23,10 @@ const userSchema = new Schema({
         type: Date,
         default: Date.now
       },
-    verticals: { type: Array },
-    selected1: { type: Boolean, required: true },
-    selected2: { type: Boolean, required: true }
+    skills: { type: Array },
+    school: { type: mongoose.Types.ObjectId, required: true, ref: 'School'}
 });
 
-userSchema.plugin(uniqueValidator);
+facilitatorSchema.plugin(uniqueValidator);
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('Facilitator', facilitatorSchema);

@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 
 const usersRoutes = require('./routes/users-routes');
 const schoolsRoutes = require('./routes/schools-routes');
+const facilitatorsRoutes = require('./routes/facilitators-routes');
 const HttpError = require('./models/http-error');
 
 const app = express();
@@ -24,10 +25,10 @@ app.use((req, res, next) => {
   next();
 });
 
-// app.use('/api/products', productsRoutes);
+app.use('/api/facilitators', facilitatorsRoutes);
 app.use('/api/users', usersRoutes);
 app.use('/api/schools', schoolsRoutes);
-// app.use('/api/buyers', buyersRoutes);
+
 
 app.use((req, res, next) => {
   const error = new HttpError('Could not find this route.', 404);

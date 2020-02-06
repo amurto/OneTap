@@ -14,4 +14,14 @@ router.post(
     schoolsController.postSaturday
 );
 
+router.post(
+    '/register',
+    schoolsController.registerSchool
+)
+
+router.get(
+    '/get',
+    schoolsController.getSchools
+)
+
 module.exports = router;

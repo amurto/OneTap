@@ -28,4 +28,16 @@ router.post(
     usersController.registerVerticals
 )
 
+router.get(
+    '/applicants',
+    usersController.getApplicants
+)
+
+router.post(
+  '/shortlist',
+  usersController.shortlistApplicant
+)
+
+router.delete('/:uid', usersController.deleteUser);
+
 module.exports = router;

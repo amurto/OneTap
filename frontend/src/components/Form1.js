@@ -12,6 +12,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { useHttpClient } from './hooks/http-hook';
 import { FormContext } from './form-context';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormLabel from '@material-ui/core/FormLabel';
 
 import './Form1.css';
 
@@ -72,6 +76,8 @@ const Form1 = () => {
                     email: '',
                     phone: '',
                     address: '',
+                    age: '',
+                    gender: '',
                     coding: false,
                     dance: false,
                     drama: false,
@@ -103,6 +109,12 @@ const Form1 = () => {
 
                     if (!values.address) {
                         errors.address = 'Required';
+                    }
+                    if (!values.age) {
+                        errors.address = 'Required';
+                    }
+                    if (!values.gender) {
+                        errors.gender = 'Required';
                     }
                     return errors;
                 }}
@@ -137,6 +149,8 @@ const Form1 = () => {
                                     email: values.email,
                                     phone: values.phone,
                                     address: values.address,
+                                    age: values.age,
+                                    gender: values.gender,
                                     foi: foi
                                 }),
                                 {
@@ -161,6 +175,7 @@ const Form1 = () => {
                     handleBlur,
                     handleSubmit,
                     isSubmitting,
+                    setFieldValue
                     /* and other goodies */
                 }) => (
                     <form className={classes.form} onSubmit={handleSubmit}>
@@ -217,6 +232,36 @@ const Form1 = () => {
                             </div>
                         </Grid>
                         <Grid item xs={12}>
+                        <TextField
+                            variant="outlined"
+                            type="number"
+                            fullWidth
+                            name="age"
+                            label="Age"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.age}
+                        />
+                        </Grid>
+                        <Grid>
+                            <div style={{ marginLeft: "10px", color: "red" }}>
+                                {errors.age && touched.age && errors.age}
+                            </div>
+                        </Grid>
+                        <Grid item xs={12}>
+                        <FormLabel component="legend">Gender</FormLabel>
+                            <RadioGroup aria-label="gender" name="gender1" value={values.gender} onChange={event => {setFieldValue("gender", event.target.value)}}>
+                            <FormControlLabel value="female" control={<Radio />} label="Female" />
+                            <FormControlLabel value="male" control={<Radio />} label="Male" />
+                            <FormControlLabel value="other" control={<Radio />} label="Other" />
+                            </RadioGroup>
+                            </Grid>
+                        <Grid>
+                            <div style={{ marginLeft: "10px", color: "red" }}>
+                                {errors.gender && touched.gender && errors.gender}
+                            </div>
+                        </Grid>
+                        <Grid item xs={12}>
                             <TextField
                                 autoComplete="address"
                                 name="address"
@@ -235,8 +280,8 @@ const Form1 = () => {
                             </div>
                         </Grid>
                         <Grid item xs={12}>
-                            <h4>
-                            Fields of interest
+                            <h4 style={{ fontSize: "20px", fontWeight: "400" }}>
+                            Fields of Interest
                             </h4>      
                         </Grid>
                         <Grid item xs={12}>
