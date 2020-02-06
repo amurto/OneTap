@@ -69,7 +69,7 @@ const createFac = async (req, res, next) => {
         let mailDetails = { 
             from: 'fourofus.tsec@gmail.com', 
             to: user.email, 
-            subject: 'Apprentice Project', 
+            subject: 'Apprentice Project Facilitation', 
             html: 'Respected Human,<br> We have conducted the phone interview and hereby decided to recruit you as a facilitator for our program.<br>Regards,OneTap Team'
         }; 
             

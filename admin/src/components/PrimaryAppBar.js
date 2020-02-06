@@ -165,7 +165,7 @@ export default function PrimarySearchAppBar() {
         <Toolbar>
           <SideDrawer />
           <Typography className={classes.title} variant="h6" noWrap>
-            Material-UI
+            OneTap
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>

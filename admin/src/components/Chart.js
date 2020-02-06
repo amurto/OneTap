@@ -1,7 +1,10 @@
 import React from 'react';
-import { Chart } from 'react-charts'
+import { Chart } from 'react-charts';
+import Grid from '@material-ui/core/Grid';
 
-const Chart = () => {
+import './Chart.css';
+
+const Chart1 = () => {
     const data = React.useMemo(
         () => [
           {
@@ -29,15 +32,10 @@ const Chart = () => {
       )
      
       return (
-        <div
-          style={{
-            width: '400px',
-            height: '300px'
-          }}
-        >
+        <Grid className="chart-card" item md={4} xs={12}>
           <Chart data={data} axes={axes} />
-        </div>
+        </Grid>
       )
 }
 
-export default Chart;
+export default Chart1;

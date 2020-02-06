@@ -169,7 +169,7 @@ const shortlistApplicant = async (req, res, next) => {
     let mailDetails = { 
         from: 'fourofus.tsec@gmail.com', 
         to: email, 
-        subject: 'Apprentice Project', 
+        subject: 'Apprentice Project Form 2', 
         html: 'Respected Human,<br> Thank you very much for the invitation to interview for the Facilitator position. I appreciate the opportunity, and I look forward to meeting with you on the coming Saturday at 9 AM in your allotted school.<br>If I can provide you with any further information prior to the interview, please let me know.<br>Best Regards,<br>OneTap Management Team'
     }; 
         
