@@ -1,6 +1,5 @@
 import React from "react";
 import { Line, Pie } from 'react-chartjs-2';
-import Grid from '@material-ui/core/Grid';
 import './Chart.css';
 
 const PieChart = () => {
@@ -78,10 +77,10 @@ const pieData = {
 
   return (
     <React.Fragment>
-      <div item className="chart-card-1">
+      <div className="chart-card-1">
       <Line data={data} options={options} />
     </div>
-      <div item className="chart-card-1">
+      <div className="chart-card-1">
       <Pie data={pieData} options={options} />
     </div>
     </React.Fragment>

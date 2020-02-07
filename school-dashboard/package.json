@@ -1,0 +1,36 @@
+{
+  "name": "first-application",
+  "version": "1.0.0",
+  "description": "Repository for final app in prep for prep bootcamp. Inspired by https://frontendmasters.com/courses/firebase-react/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "ejs": "^2.7.4",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "firebase-admin": "^5.0.1",
+    "mongoose": "^5.8.11",
+    "mongoose-unique-validator": "^2.0.3",
+    "morgan": "^1.9.1",
+    "nodemon": "^2.0.2",
+    "twilio": "^3.39.3",
+    "googleapis": "^47.0.0",
+    "sentiment": "^5.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jastor11/node-express-firebase-voting-app.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Jastor11/node-express-firebase-voting-app/issues"
+  },
+  "homepage": "https://github.com/Jastor11/node-express-firebase-voting-app#readme"
+}

@@ -36,7 +36,7 @@ app.use((req, res, next) => {
 });
 
 mongoose
-  .connect('mongodb+srv://amurto:tsec@tsec-nie5s.mongodb.net/test?retryWrites=true&w=majority',
+  .connect('mongodb+srv://XXXXXX:XXXX@tsec-nie5s.mongodb.net/test?retryWrites=true&w=majority',
     { 
       useCreateIndex: true,
       useNewUrlParser: true, 
@@ -49,4 +49,4 @@ mongoose
   })
   .catch(err => {
     console.log(err);
-  });
+});
