@@ -17,7 +17,7 @@ Automation of The Apprentice Project built at TSEC Hacks 2.0
 
 * [npm](https://www.npmjs.com/)
 * [Express.js](https://expressjs.com/)
-* [MongoDB](https://reactjs.org/)
+* [MongoDB](https://www.mongodb.com/)
 * [React.js](https://reactjs.org/)
 * [Mapbox](https://www.mapbox.com/)
 
