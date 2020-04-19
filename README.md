@@ -34,6 +34,12 @@ Clone the repository
 git clone https://github.com/amurto/OneTap.git
 ```
 
+Install all the dependencies on backend
+```bash
+cd backend
+npm install
+```
+
 Install all the dependencies on facilitator client
 ```bash
 cd facilitator
